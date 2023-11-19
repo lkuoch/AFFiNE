@@ -10,6 +10,14 @@
 
 :root {
   --noise-background: url(./noise.avif);
+
+  /* Overwrite styles */
+  --affine-background-primary-color: #333749 !important;
+  --affine-hover-color-filled: #333749 !important;
+}
+
+.noisy-background {
+  background-color: #333749 !important;
 }
 
 html,

@@ -4,7 +4,6 @@ import { BrowserWindow, type CookiesSetDetails, nativeTheme } from 'electron';
 import electronWindowState from 'electron-window-state';
 import { join } from 'path';
 
-import { isMacOS, isWindows } from '../shared/utils';
 import { ensureHelperProcess } from './helper-process';
 import { logger } from './logger';
 import { uiSubjects } from './ui/subject';
@@ -42,11 +41,10 @@ async function createWindow(additionalArguments: string[]) {
   assert(helperExposedMeta, 'helperExposedMeta should be defined');
 
   const browserWindow = new BrowserWindow({
-    titleBarStyle: isMacOS()
-      ? 'hiddenInset'
-      : isWindows()
-        ? 'hidden'
-        : 'default',
+    titleBarStyle: 'hidden',
+    backgroundColor: '#303446',
+    opacity: 0.93,
+    transparent: true,
     trafficLightPosition: { x: 20, y: 16 },
     x: mainWindowState.x,
     y: mainWindowState.y,
